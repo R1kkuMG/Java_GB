@@ -1,5 +1,6 @@
 package Pets.Animals;
 
+import FamilyTree.Person;
 import Pets.Interface.Pet;
 
 import java.util.ArrayList;
@@ -43,6 +44,9 @@ public abstract class Animal {
         setName(getRandomName());
     }
 
+    public int getFood() {
+        return food;
+    }
     public String getName() {
         return name;
     }
@@ -87,9 +91,7 @@ public abstract class Animal {
      * Метод оповещения, что показатель еды у животного снизился
      * @return перегруженную строку в зависимости от типа объекта
      */
-    public String sayHungry() {
-        return "";
-    }
+    public abstract String sayHungry();
 
     /**
      * Метод восполнения показателя еды
@@ -112,4 +114,23 @@ public abstract class Animal {
         System.out.println(name + " is coming...");
     }
 
+    public int compareTo(Animal animal) {
+        if (this.food > animal.food) {
+            return 1;
+        } else if (this.food < animal.food) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int compareTo2(Animal animal) {
+        int result = this.getRandomName().compareTo(animal.getRandomName());
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("\nName: %s  Food: %d  Type: %s", this.name, this.food, this.getClass().getSimpleName());
+    }
 }

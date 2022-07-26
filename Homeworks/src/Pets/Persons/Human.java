@@ -7,7 +7,6 @@ import java.util.Random;
 public class Human implements Pets.Interface.Human {
     private static String name;
     private Gender gender;
-    protected static Random r;
 
     /**
      * Конструктор для создания объекта класса Human
